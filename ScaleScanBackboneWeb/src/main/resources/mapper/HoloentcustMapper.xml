@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.moyansz.scalescan.mapper.HoloentcustMapper" >
+  <resultMap id="BaseResultMap" type="com.moyansz.scalescan.po.Holoentcust" >
+    <result column="hUserID" property="huserid" jdbcType="INTEGER" />
+    <result column="hStar" property="hstar" jdbcType="SMALLINT" />
+    <result column="hAccumulate" property="haccumulate" jdbcType="REAL" />
+    <result column="hDeposit" property="hdeposit" jdbcType="REAL" />
+    <result column="hUserStar" property="huserstar" jdbcType="SMALLINT" />
+    <result column="hCustID" property="hcustid" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    hUserID, hStar, hAccumulate, hDeposit, hUserStar, hCustID
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.moyansz.scalescan.po.HoloentcustExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from holoEntCust
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.moyansz.scalescan.po.HoloentcustExample" >
+    delete from holoEntCust
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.moyansz.scalescan.po.Holoentcust" >
+    insert into holoEntCust (hUserID, hStar, hAccumulate, 
+      hDeposit, hUserStar, hCustID
+      )
+    values (#{huserid,jdbcType=INTEGER}, #{hstar,jdbcType=SMALLINT}, #{haccumulate,jdbcType=REAL}, 
+      #{hdeposit,jdbcType=REAL}, #{huserstar,jdbcType=SMALLINT}, #{hcustid,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.moyansz.scalescan.po.Holoentcust" >
+    insert into holoEntCust
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="huserid != null" >
+        hUserID,
+      </if>
+      <if test="hstar != null" >
+        hStar,
+      </if>
+      <if test="haccumulate != null" >
+        hAccumulate,
+      </if>
+      <if test="hdeposit != null" >
+        hDeposit,
+      </if>
+      <if test="huserstar != null" >
+        hUserStar,
+      </if>
+      <if test="hcustid != null" >
+        hCustID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="huserid != null" >
+        #{huserid,jdbcType=INTEGER},
+      </if>
+      <if test="hstar != null" >
+        #{hstar,jdbcType=SMALLINT},
+      </if>
+      <if test="haccumulate != null" >
+        #{haccumulate,jdbcType=REAL},
+      </if>
+      <if test="hdeposit != null" >
+        #{hdeposit,jdbcType=REAL},
+      </if>
+      <if test="huserstar != null" >
+        #{huserstar,jdbcType=SMALLINT},
+      </if>
+      <if test="hcustid != null" >
+        #{hcustid,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.moyansz.scalescan.po.HoloentcustExample" resultType="java.lang.Integer" >
+    select count(*) from holoEntCust
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update holoEntCust
+    <set >
+      <if test="record.huserid != null" >
+        hUserID = #{record.huserid,jdbcType=INTEGER},
+      </if>
+      <if test="record.hstar != null" >
+        hStar = #{record.hstar,jdbcType=SMALLINT},
+      </if>
+      <if test="record.haccumulate != null" >
+        hAccumulate = #{record.haccumulate,jdbcType=REAL},
+      </if>
+      <if test="record.hdeposit != null" >
+        hDeposit = #{record.hdeposit,jdbcType=REAL},
+      </if>
+      <if test="record.huserstar != null" >
+        hUserStar = #{record.huserstar,jdbcType=SMALLINT},
+      </if>
+      <if test="record.hcustid != null" >
+        hCustID = #{record.hcustid,jdbcType=BIGINT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update holoEntCust
+    set hUserID = #{record.huserid,jdbcType=INTEGER},
+      hStar = #{record.hstar,jdbcType=SMALLINT},
+      hAccumulate = #{record.haccumulate,jdbcType=REAL},
+      hDeposit = #{record.hdeposit,jdbcType=REAL},
+      hUserStar = #{record.huserstar,jdbcType=SMALLINT},
+      hCustID = #{record.hcustid,jdbcType=BIGINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

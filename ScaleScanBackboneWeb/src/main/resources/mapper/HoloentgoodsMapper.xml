@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.moyansz.scalescan.mapper.HoloentgoodsMapper" >
+  <resultMap id="BaseResultMap" type="com.moyansz.scalescan.po.Holoentgoods" >
+    <id column="hGoodsID" property="hgoodsid" jdbcType="INTEGER" />
+    <result column="hUserID" property="huserid" jdbcType="INTEGER" />
+    <result column="UUID" property="uuid" jdbcType="VARCHAR" />
+    <result column="hGoodsName" property="hgoodsname" jdbcType="VARCHAR" />
+    <result column="hGoodsSize" property="hgoodssize" jdbcType="VARCHAR" />
+    <result column="hGoodsPic" property="hgoodspic" jdbcType="VARCHAR" />
+    <result column="hSalePrice" property="hsaleprice" jdbcType="REAL" />
+    <result column="hWholeSalePrice" property="hwholesaleprice" jdbcType="REAL" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    hGoodsID, hUserID, UUID, hGoodsName, hGoodsSize, hGoodsPic, hSalePrice, hWholeSalePrice
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.moyansz.scalescan.po.HoloentgoodsExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from holoEntGoods
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from holoEntGoods
+    where hGoodsID = #{hgoodsid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from holoEntGoods
+    where hGoodsID = #{hgoodsid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.moyansz.scalescan.po.HoloentgoodsExample" >
+    delete from holoEntGoods
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.moyansz.scalescan.po.Holoentgoods" >
+    insert into holoEntGoods (hGoodsID, hUserID, UUID, 
+      hGoodsName, hGoodsSize, hGoodsPic, 
+      hSalePrice, hWholeSalePrice)
+    values (#{hgoodsid,jdbcType=INTEGER}, #{huserid,jdbcType=INTEGER}, #{uuid,jdbcType=VARCHAR}, 
+      #{hgoodsname,jdbcType=VARCHAR}, #{hgoodssize,jdbcType=VARCHAR}, #{hgoodspic,jdbcType=VARCHAR}, 
+      #{hsaleprice,jdbcType=REAL}, #{hwholesaleprice,jdbcType=REAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.moyansz.scalescan.po.Holoentgoods" >
+    insert into holoEntGoods
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="hgoodsid != null" >
+        hGoodsID,
+      </if>
+      <if test="huserid != null" >
+        hUserID,
+      </if>
+      <if test="uuid != null" >
+        UUID,
+      </if>
+      <if test="hgoodsname != null" >
+        hGoodsName,
+      </if>
+      <if test="hgoodssize != null" >
+        hGoodsSize,
+      </if>
+      <if test="hgoodspic != null" >
+        hGoodsPic,
+      </if>
+      <if test="hsaleprice != null" >
+        hSalePrice,
+      </if>
+      <if test="hwholesaleprice != null" >
+        hWholeSalePrice,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="hgoodsid != null" >
+        #{hgoodsid,jdbcType=INTEGER},
+      </if>
+      <if test="huserid != null" >
+        #{huserid,jdbcType=INTEGER},
+      </if>
+      <if test="uuid != null" >
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="hgoodsname != null" >
+        #{hgoodsname,jdbcType=VARCHAR},
+      </if>
+      <if test="hgoodssize != null" >
+        #{hgoodssize,jdbcType=VARCHAR},
+      </if>
+      <if test="hgoodspic != null" >
+        #{hgoodspic,jdbcType=VARCHAR},
+      </if>
+      <if test="hsaleprice != null" >
+        #{hsaleprice,jdbcType=REAL},
+      </if>
+      <if test="hwholesaleprice != null" >
+        #{hwholesaleprice,jdbcType=REAL},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.moyansz.scalescan.po.HoloentgoodsExample" resultType="java.lang.Integer" >
+    select count(*) from holoEntGoods
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update holoEntGoods
+    <set >
+      <if test="record.hgoodsid != null" >
+        hGoodsID = #{record.hgoodsid,jdbcType=INTEGER},
+      </if>
+      <if test="record.huserid != null" >
+        hUserID = #{record.huserid,jdbcType=INTEGER},
+      </if>
+      <if test="record.uuid != null" >
+        UUID = #{record.uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hgoodsname != null" >
+        hGoodsName = #{record.hgoodsname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hgoodssize != null" >
+        hGoodsSize = #{record.hgoodssize,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hgoodspic != null" >
+        hGoodsPic = #{record.hgoodspic,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hsaleprice != null" >
+        hSalePrice = #{record.hsaleprice,jdbcType=REAL},
+      </if>
+      <if test="record.hwholesaleprice != null" >
+        hWholeSalePrice = #{record.hwholesaleprice,jdbcType=REAL},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update holoEntGoods
+    set hGoodsID = #{record.hgoodsid,jdbcType=INTEGER},
+      hUserID = #{record.huserid,jdbcType=INTEGER},
+      UUID = #{record.uuid,jdbcType=VARCHAR},
+      hGoodsName = #{record.hgoodsname,jdbcType=VARCHAR},
+      hGoodsSize = #{record.hgoodssize,jdbcType=VARCHAR},
+      hGoodsPic = #{record.hgoodspic,jdbcType=VARCHAR},
+      hSalePrice = #{record.hsaleprice,jdbcType=REAL},
+      hWholeSalePrice = #{record.hwholesaleprice,jdbcType=REAL}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.moyansz.scalescan.po.Holoentgoods" >
+    update holoEntGoods
+    <set >
+      <if test="huserid != null" >
+        hUserID = #{huserid,jdbcType=INTEGER},
+      </if>
+      <if test="uuid != null" >
+        UUID = #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="hgoodsname != null" >
+        hGoodsName = #{hgoodsname,jdbcType=VARCHAR},
+      </if>
+      <if test="hgoodssize != null" >
+        hGoodsSize = #{hgoodssize,jdbcType=VARCHAR},
+      </if>
+      <if test="hgoodspic != null" >
+        hGoodsPic = #{hgoodspic,jdbcType=VARCHAR},
+      </if>
+      <if test="hsaleprice != null" >
+        hSalePrice = #{hsaleprice,jdbcType=REAL},
+      </if>
+      <if test="hwholesaleprice != null" >
+        hWholeSalePrice = #{hwholesaleprice,jdbcType=REAL},
+      </if>
+    </set>
+    where hGoodsID = #{hgoodsid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.moyansz.scalescan.po.Holoentgoods" >
+    update holoEntGoods
+    set hUserID = #{huserid,jdbcType=INTEGER},
+      UUID = #{uuid,jdbcType=VARCHAR},
+      hGoodsName = #{hgoodsname,jdbcType=VARCHAR},
+      hGoodsSize = #{hgoodssize,jdbcType=VARCHAR},
+      hGoodsPic = #{hgoodspic,jdbcType=VARCHAR},
+      hSalePrice = #{hsaleprice,jdbcType=REAL},
+      hWholeSalePrice = #{hwholesaleprice,jdbcType=REAL}
+    where hGoodsID = #{hgoodsid,jdbcType=INTEGER}
+  </update>
+</mapper>

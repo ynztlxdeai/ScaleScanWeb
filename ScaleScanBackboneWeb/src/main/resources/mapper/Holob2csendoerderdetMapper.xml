@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.moyansz.scalescan.mapper.Holob2csendoerderdetMapper" >
+  <resultMap id="BaseResultMap" type="com.moyansz.scalescan.po.Holob2csendoerderdet" >
+    <id column="hSendDetID" property="hsenddetid" jdbcType="INTEGER" />
+    <result column="hSendID" property="hsendid" jdbcType="INTEGER" />
+    <result column="hGoodsID" property="hgoodsid" jdbcType="INTEGER" />
+    <result column="hGoodsNum" property="hgoodsnum" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    hSendDetID, hSendID, hGoodsID, hGoodsNum
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.moyansz.scalescan.po.Holob2csendoerderdetExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from holoB2CSendOerderDet
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from holoB2CSendOerderDet
+    where hSendDetID = #{hsenddetid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from holoB2CSendOerderDet
+    where hSendDetID = #{hsenddetid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.moyansz.scalescan.po.Holob2csendoerderdetExample" >
+    delete from holoB2CSendOerderDet
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.moyansz.scalescan.po.Holob2csendoerderdet" >
+    insert into holoB2CSendOerderDet (hSendDetID, hSendID, hGoodsID, 
+      hGoodsNum)
+    values (#{hsenddetid,jdbcType=INTEGER}, #{hsendid,jdbcType=INTEGER}, #{hgoodsid,jdbcType=INTEGER}, 
+      #{hgoodsnum,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.moyansz.scalescan.po.Holob2csendoerderdet" >
+    insert into holoB2CSendOerderDet
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="hsenddetid != null" >
+        hSendDetID,
+      </if>
+      <if test="hsendid != null" >
+        hSendID,
+      </if>
+      <if test="hgoodsid != null" >
+        hGoodsID,
+      </if>
+      <if test="hgoodsnum != null" >
+        hGoodsNum,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="hsenddetid != null" >
+        #{hsenddetid,jdbcType=INTEGER},
+      </if>
+      <if test="hsendid != null" >
+        #{hsendid,jdbcType=INTEGER},
+      </if>
+      <if test="hgoodsid != null" >
+        #{hgoodsid,jdbcType=INTEGER},
+      </if>
+      <if test="hgoodsnum != null" >
+        #{hgoodsnum,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.moyansz.scalescan.po.Holob2csendoerderdetExample" resultType="java.lang.Integer" >
+    select count(*) from holoB2CSendOerderDet
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update holoB2CSendOerderDet
+    <set >
+      <if test="record.hsenddetid != null" >
+        hSendDetID = #{record.hsenddetid,jdbcType=INTEGER},
+      </if>
+      <if test="record.hsendid != null" >
+        hSendID = #{record.hsendid,jdbcType=INTEGER},
+      </if>
+      <if test="record.hgoodsid != null" >
+        hGoodsID = #{record.hgoodsid,jdbcType=INTEGER},
+      </if>
+      <if test="record.hgoodsnum != null" >
+        hGoodsNum = #{record.hgoodsnum,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update holoB2CSendOerderDet
+    set hSendDetID = #{record.hsenddetid,jdbcType=INTEGER},
+      hSendID = #{record.hsendid,jdbcType=INTEGER},
+      hGoodsID = #{record.hgoodsid,jdbcType=INTEGER},
+      hGoodsNum = #{record.hgoodsnum,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.moyansz.scalescan.po.Holob2csendoerderdet" >
+    update holoB2CSendOerderDet
+    <set >
+      <if test="hsendid != null" >
+        hSendID = #{hsendid,jdbcType=INTEGER},
+      </if>
+      <if test="hgoodsid != null" >
+        hGoodsID = #{hgoodsid,jdbcType=INTEGER},
+      </if>
+      <if test="hgoodsnum != null" >
+        hGoodsNum = #{hgoodsnum,jdbcType=INTEGER},
+      </if>
+    </set>
+    where hSendDetID = #{hsenddetid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.moyansz.scalescan.po.Holob2csendoerderdet" >
+    update holoB2CSendOerderDet
+    set hSendID = #{hsendid,jdbcType=INTEGER},
+      hGoodsID = #{hgoodsid,jdbcType=INTEGER},
+      hGoodsNum = #{hgoodsnum,jdbcType=INTEGER}
+    where hSendDetID = #{hsenddetid,jdbcType=INTEGER}
+  </update>
+</mapper>

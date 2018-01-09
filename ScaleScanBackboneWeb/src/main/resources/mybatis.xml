@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+	<!--别名-->
+	<!--<typeAliases>
+		<typeAlias type="com.moyansz.entity.AppBanner" alias="banner" />
+		<typeAlias type="com.moyansz.entity.AppUser" alias="appUser" />
+		<typeAlias type="com.moyansz.entity.Columns" alias="columns" />
+		<typeAlias type="com.moyansz.entity.SysUser" alias="sysUser" />
+		<typeAlias type="com.moyansz.entity.Film" alias="film" />
+	</typeAliases>-->
+
+	<!-- <plugins> <plugin interceptor="com.common.page.interceptor.PaginationInterceptor"/> 
+		</plugins> -->
+
+	<!--加载这个包下所有的-->
+	<!-- <mappers>
+	 	<package name="com.moyansz.scalescan.mapper"/>
+	 </mappers>-->
+</configuration>
+
+
