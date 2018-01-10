@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>com.moyansz.scalescan</artifactId>
+        <groupId>com.moyansz.scalescan</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>com.moyansz.scalescan.service</artifactId>
+
+    <dependencies>
+        <!--数据库操作-->
+        <dependency>
+            <groupId>com.moyansz.scalescan</groupId>
+            <artifactId>com.moyansz.scalescan.dao</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <!--实体类-->
+        <dependency>
+            <groupId>com.moyansz.scalescan</groupId>
+            <artifactId>com.moyansz.scalescan.entity</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+       <!-- 工具类-->
+        <dependency>
+            <groupId>com.moyansz.scalescan</groupId>
+            <artifactId>com.moyansz.scalescan.utils</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>1.9.13</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.16</version>
+        </dependency>
+
+    </dependencies>
+
+</project>
