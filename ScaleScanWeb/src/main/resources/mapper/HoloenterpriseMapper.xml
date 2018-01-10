@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.moyansz.scalescan.mapper.HoloenterpriseMapper">
+  <resultMap id="BaseResultMap" type="com.moyansz.scalescan.po.Holoenterprise">
+    <id column="hUserID" jdbcType="INTEGER" property="huserid" />
+    <result column="hUserName" jdbcType="VARCHAR" property="husername" />
+    <result column="hUserPassword" jdbcType="VARCHAR" property="huserpassword" />
+    <result column="hEntName" jdbcType="VARCHAR" property="hentname" />
+    <result column="hContact" jdbcType="VARCHAR" property="hcontact" />
+    <result column="hPhone" jdbcType="VARCHAR" property="hphone" />
+    <result column="hProvince" jdbcType="VARCHAR" property="hprovince" />
+    <result column="hCity" jdbcType="VARCHAR" property="hcity" />
+    <result column="hCount" jdbcType="VARCHAR" property="hcount" />
+    <result column="hAddress" jdbcType="VARCHAR" property="haddress" />
+    <result column="hCategory" jdbcType="SMALLINT" property="hcategory" />
+    <result column="hStar" jdbcType="SMALLINT" property="hstar" />
+    <result column="hBank" jdbcType="VARCHAR" property="hbank" />
+    <result column="hAccount" jdbcType="VARCHAR" property="haccount" />
+    <result column="hEntDesc" jdbcType="VARCHAR" property="hentdesc" />
+    <result column="hEntPic1" jdbcType="VARCHAR" property="hentpic1" />
+    <result column="hEntPic2" jdbcType="VARCHAR" property="hentpic2" />
+    <result column="hEntPic3" jdbcType="VARCHAR" property="hentpic3" />
+    <result column="hEntPic4" jdbcType="VARCHAR" property="hentpic4" />
+    <result column="hEntPic5" jdbcType="VARCHAR" property="hentpic5" />
+    <result column="hMobileNum" jdbcType="VARCHAR" property="hmobilenum" />
+    <result column="hOutTime" jdbcType="REAL" property="houttime" />
+    <result column="hSecurityCode" jdbcType="VARCHAR" property="hsecuritycode" />
+    <result column="hCardboredID" jdbcType="VARCHAR" property="hcardboredid" />
+    <result column="hRegistTime" jdbcType="DATE" property="hregisttime" />
+    <result column="hCountryArea" jdbcType="VARCHAR" property="hcountryarea" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    hUserID, hUserName, hUserPassword, hEntName, hContact, hPhone, hProvince, hCity, 
+    hCount, hAddress, hCategory, hStar, hBank, hAccount, hEntDesc, hEntPic1, hEntPic2, 
+    hEntPic3, hEntPic4, hEntPic5, hMobileNum, hOutTime, hSecurityCode, hCardboredID, 
+    hRegistTime, hCountryArea
+  </sql>
+  <select id="selectByExample" parameterType="com.moyansz.scalescan.po.HoloenterpriseExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from holoEnterprise
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from holoEnterprise
+    where hUserID = #{huserid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from holoEnterprise
+    where hUserID = #{huserid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.moyansz.scalescan.po.HoloenterpriseExample">
+    delete from holoEnterprise
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.moyansz.scalescan.po.Holoenterprise">
+    insert into holoEnterprise (hUserID, hUserName, hUserPassword, 
+      hEntName, hContact, hPhone, 
+      hProvince, hCity, hCount, 
+      hAddress, hCategory, hStar, 
+      hBank, hAccount, hEntDesc, 
+      hEntPic1, hEntPic2, hEntPic3, 
+      hEntPic4, hEntPic5, hMobileNum, 
+      hOutTime, hSecurityCode, hCardboredID, 
+      hRegistTime, hCountryArea)
+    values (#{huserid,jdbcType=INTEGER}, #{husername,jdbcType=VARCHAR}, #{huserpassword,jdbcType=VARCHAR}, 
+      #{hentname,jdbcType=VARCHAR}, #{hcontact,jdbcType=VARCHAR}, #{hphone,jdbcType=VARCHAR}, 
+      #{hprovince,jdbcType=VARCHAR}, #{hcity,jdbcType=VARCHAR}, #{hcount,jdbcType=VARCHAR}, 
+      #{haddress,jdbcType=VARCHAR}, #{hcategory,jdbcType=SMALLINT}, #{hstar,jdbcType=SMALLINT}, 
+      #{hbank,jdbcType=VARCHAR}, #{haccount,jdbcType=VARCHAR}, #{hentdesc,jdbcType=VARCHAR}, 
+      #{hentpic1,jdbcType=VARCHAR}, #{hentpic2,jdbcType=VARCHAR}, #{hentpic3,jdbcType=VARCHAR}, 
+      #{hentpic4,jdbcType=VARCHAR}, #{hentpic5,jdbcType=VARCHAR}, #{hmobilenum,jdbcType=VARCHAR}, 
+      #{houttime,jdbcType=REAL}, #{hsecuritycode,jdbcType=VARCHAR}, #{hcardboredid,jdbcType=VARCHAR}, 
+      #{hregisttime,jdbcType=DATE}, #{hcountryarea,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.moyansz.scalescan.po.Holoenterprise">
+    insert into holoEnterprise
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="huserid != null">
+        hUserID,
+      </if>
+      <if test="husername != null">
+        hUserName,
+      </if>
+      <if test="huserpassword != null">
+        hUserPassword,
+      </if>
+      <if test="hentname != null">
+        hEntName,
+      </if>
+      <if test="hcontact != null">
+        hContact,
+      </if>
+      <if test="hphone != null">
+        hPhone,
+      </if>
+      <if test="hprovince != null">
+        hProvince,
+      </if>
+      <if test="hcity != null">
+        hCity,
+      </if>
+      <if test="hcount != null">
+        hCount,
+      </if>
+      <if test="haddress != null">
+        hAddress,
+      </if>
+      <if test="hcategory != null">
+        hCategory,
+      </if>
+      <if test="hstar != null">
+        hStar,
+      </if>
+      <if test="hbank != null">
+        hBank,
+      </if>
+      <if test="haccount != null">
+        hAccount,
+      </if>
+      <if test="hentdesc != null">
+        hEntDesc,
+      </if>
+      <if test="hentpic1 != null">
+        hEntPic1,
+      </if>
+      <if test="hentpic2 != null">
+        hEntPic2,
+      </if>
+      <if test="hentpic3 != null">
+        hEntPic3,
+      </if>
+      <if test="hentpic4 != null">
+        hEntPic4,
+      </if>
+      <if test="hentpic5 != null">
+        hEntPic5,
+      </if>
+      <if test="hmobilenum != null">
+        hMobileNum,
+      </if>
+      <if test="houttime != null">
+        hOutTime,
+      </if>
+      <if test="hsecuritycode != null">
+        hSecurityCode,
+      </if>
+      <if test="hcardboredid != null">
+        hCardboredID,
+      </if>
+      <if test="hregisttime != null">
+        hRegistTime,
+      </if>
+      <if test="hcountryarea != null">
+        hCountryArea,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="huserid != null">
+        #{huserid,jdbcType=INTEGER},
+      </if>
+      <if test="husername != null">
+        #{husername,jdbcType=VARCHAR},
+      </if>
+      <if test="huserpassword != null">
+        #{huserpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="hentname != null">
+        #{hentname,jdbcType=VARCHAR},
+      </if>
+      <if test="hcontact != null">
+        #{hcontact,jdbcType=VARCHAR},
+      </if>
+      <if test="hphone != null">
+        #{hphone,jdbcType=VARCHAR},
+      </if>
+      <if test="hprovince != null">
+        #{hprovince,jdbcType=VARCHAR},
+      </if>
+      <if test="hcity != null">
+        #{hcity,jdbcType=VARCHAR},
+      </if>
+      <if test="hcount != null">
+        #{hcount,jdbcType=VARCHAR},
+      </if>
+      <if test="haddress != null">
+        #{haddress,jdbcType=VARCHAR},
+      </if>
+      <if test="hcategory != null">
+        #{hcategory,jdbcType=SMALLINT},
+      </if>
+      <if test="hstar != null">
+        #{hstar,jdbcType=SMALLINT},
+      </if>
+      <if test="hbank != null">
+        #{hbank,jdbcType=VARCHAR},
+      </if>
+      <if test="haccount != null">
+        #{haccount,jdbcType=VARCHAR},
+      </if>
+      <if test="hentdesc != null">
+        #{hentdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="hentpic1 != null">
+        #{hentpic1,jdbcType=VARCHAR},
+      </if>
+      <if test="hentpic2 != null">
+        #{hentpic2,jdbcType=VARCHAR},
+      </if>
+      <if test="hentpic3 != null">
+        #{hentpic3,jdbcType=VARCHAR},
+      </if>
+      <if test="hentpic4 != null">
+        #{hentpic4,jdbcType=VARCHAR},
+      </if>
+      <if test="hentpic5 != null">
+        #{hentpic5,jdbcType=VARCHAR},
+      </if>
+      <if test="hmobilenum != null">
+        #{hmobilenum,jdbcType=VARCHAR},
+      </if>
+      <if test="houttime != null">
+        #{houttime,jdbcType=REAL},
+      </if>
+      <if test="hsecuritycode != null">
+        #{hsecuritycode,jdbcType=VARCHAR},
+      </if>
+      <if test="hcardboredid != null">
+        #{hcardboredid,jdbcType=VARCHAR},
+      </if>
+      <if test="hregisttime != null">
+        #{hregisttime,jdbcType=DATE},
+      </if>
+      <if test="hcountryarea != null">
+        #{hcountryarea,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.moyansz.scalescan.po.HoloenterpriseExample" resultType="java.lang.Integer">
+    select count(*) from holoEnterprise
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update holoEnterprise
+    <set>
+      <if test="record.huserid != null">
+        hUserID = #{record.huserid,jdbcType=INTEGER},
+      </if>
+      <if test="record.husername != null">
+        hUserName = #{record.husername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.huserpassword != null">
+        hUserPassword = #{record.huserpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hentname != null">
+        hEntName = #{record.hentname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hcontact != null">
+        hContact = #{record.hcontact,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hphone != null">
+        hPhone = #{record.hphone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hprovince != null">
+        hProvince = #{record.hprovince,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hcity != null">
+        hCity = #{record.hcity,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hcount != null">
+        hCount = #{record.hcount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.haddress != null">
+        hAddress = #{record.haddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hcategory != null">
+        hCategory = #{record.hcategory,jdbcType=SMALLINT},
+      </if>
+      <if test="record.hstar != null">
+        hStar = #{record.hstar,jdbcType=SMALLINT},
+      </if>
+      <if test="record.hbank != null">
+        hBank = #{record.hbank,jdbcType=VARCHAR},
+      </if>
+      <if test="record.haccount != null">
+        hAccount = #{record.haccount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hentdesc != null">
+        hEntDesc = #{record.hentdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hentpic1 != null">
+        hEntPic1 = #{record.hentpic1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hentpic2 != null">
+        hEntPic2 = #{record.hentpic2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hentpic3 != null">
+        hEntPic3 = #{record.hentpic3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hentpic4 != null">
+        hEntPic4 = #{record.hentpic4,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hentpic5 != null">
+        hEntPic5 = #{record.hentpic5,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hmobilenum != null">
+        hMobileNum = #{record.hmobilenum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.houttime != null">
+        hOutTime = #{record.houttime,jdbcType=REAL},
+      </if>
+      <if test="record.hsecuritycode != null">
+        hSecurityCode = #{record.hsecuritycode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hcardboredid != null">
+        hCardboredID = #{record.hcardboredid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hregisttime != null">
+        hRegistTime = #{record.hregisttime,jdbcType=DATE},
+      </if>
+      <if test="record.hcountryarea != null">
+        hCountryArea = #{record.hcountryarea,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update holoEnterprise
+    set hUserID = #{record.huserid,jdbcType=INTEGER},
+      hUserName = #{record.husername,jdbcType=VARCHAR},
+      hUserPassword = #{record.huserpassword,jdbcType=VARCHAR},
+      hEntName = #{record.hentname,jdbcType=VARCHAR},
+      hContact = #{record.hcontact,jdbcType=VARCHAR},
+      hPhone = #{record.hphone,jdbcType=VARCHAR},
+      hProvince = #{record.hprovince,jdbcType=VARCHAR},
+      hCity = #{record.hcity,jdbcType=VARCHAR},
+      hCount = #{record.hcount,jdbcType=VARCHAR},
+      hAddress = #{record.haddress,jdbcType=VARCHAR},
+      hCategory = #{record.hcategory,jdbcType=SMALLINT},
+      hStar = #{record.hstar,jdbcType=SMALLINT},
+      hBank = #{record.hbank,jdbcType=VARCHAR},
+      hAccount = #{record.haccount,jdbcType=VARCHAR},
+      hEntDesc = #{record.hentdesc,jdbcType=VARCHAR},
+      hEntPic1 = #{record.hentpic1,jdbcType=VARCHAR},
+      hEntPic2 = #{record.hentpic2,jdbcType=VARCHAR},
+      hEntPic3 = #{record.hentpic3,jdbcType=VARCHAR},
+      hEntPic4 = #{record.hentpic4,jdbcType=VARCHAR},
+      hEntPic5 = #{record.hentpic5,jdbcType=VARCHAR},
+      hMobileNum = #{record.hmobilenum,jdbcType=VARCHAR},
+      hOutTime = #{record.houttime,jdbcType=REAL},
+      hSecurityCode = #{record.hsecuritycode,jdbcType=VARCHAR},
+      hCardboredID = #{record.hcardboredid,jdbcType=VARCHAR},
+      hRegistTime = #{record.hregisttime,jdbcType=DATE},
+      hCountryArea = #{record.hcountryarea,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.moyansz.scalescan.po.Holoenterprise">
+    update holoEnterprise
+    <set>
+      <if test="husername != null">
+        hUserName = #{husername,jdbcType=VARCHAR},
+      </if>
+      <if test="huserpassword != null">
+        hUserPassword = #{huserpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="hentname != null">
+        hEntName = #{hentname,jdbcType=VARCHAR},
+      </if>
+      <if test="hcontact != null">
+        hContact = #{hcontact,jdbcType=VARCHAR},
+      </if>
+      <if test="hphone != null">
+        hPhone = #{hphone,jdbcType=VARCHAR},
+      </if>
+      <if test="hprovince != null">
+        hProvince = #{hprovince,jdbcType=VARCHAR},
+      </if>
+      <if test="hcity != null">
+        hCity = #{hcity,jdbcType=VARCHAR},
+      </if>
+      <if test="hcount != null">
+        hCount = #{hcount,jdbcType=VARCHAR},
+      </if>
+      <if test="haddress != null">
+        hAddress = #{haddress,jdbcType=VARCHAR},
+      </if>
+      <if test="hcategory != null">
+        hCategory = #{hcategory,jdbcType=SMALLINT},
+      </if>
+      <if test="hstar != null">
+        hStar = #{hstar,jdbcType=SMALLINT},
+      </if>
+      <if test="hbank != null">
+        hBank = #{hbank,jdbcType=VARCHAR},
+      </if>
+      <if test="haccount != null">
+        hAccount = #{haccount,jdbcType=VARCHAR},
+      </if>
+      <if test="hentdesc != null">
+        hEntDesc = #{hentdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="hentpic1 != null">
+        hEntPic1 = #{hentpic1,jdbcType=VARCHAR},
+      </if>
+      <if test="hentpic2 != null">
+        hEntPic2 = #{hentpic2,jdbcType=VARCHAR},
+      </if>
+      <if test="hentpic3 != null">
+        hEntPic3 = #{hentpic3,jdbcType=VARCHAR},
+      </if>
+      <if test="hentpic4 != null">
+        hEntPic4 = #{hentpic4,jdbcType=VARCHAR},
+      </if>
+      <if test="hentpic5 != null">
+        hEntPic5 = #{hentpic5,jdbcType=VARCHAR},
+      </if>
+      <if test="hmobilenum != null">
+        hMobileNum = #{hmobilenum,jdbcType=VARCHAR},
+      </if>
+      <if test="houttime != null">
+        hOutTime = #{houttime,jdbcType=REAL},
+      </if>
+      <if test="hsecuritycode != null">
+        hSecurityCode = #{hsecuritycode,jdbcType=VARCHAR},
+      </if>
+      <if test="hcardboredid != null">
+        hCardboredID = #{hcardboredid,jdbcType=VARCHAR},
+      </if>
+      <if test="hregisttime != null">
+        hRegistTime = #{hregisttime,jdbcType=DATE},
+      </if>
+      <if test="hcountryarea != null">
+        hCountryArea = #{hcountryarea,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where hUserID = #{huserid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.moyansz.scalescan.po.Holoenterprise">
+    update holoEnterprise
+    set hUserName = #{husername,jdbcType=VARCHAR},
+      hUserPassword = #{huserpassword,jdbcType=VARCHAR},
+      hEntName = #{hentname,jdbcType=VARCHAR},
+      hContact = #{hcontact,jdbcType=VARCHAR},
+      hPhone = #{hphone,jdbcType=VARCHAR},
+      hProvince = #{hprovince,jdbcType=VARCHAR},
+      hCity = #{hcity,jdbcType=VARCHAR},
+      hCount = #{hcount,jdbcType=VARCHAR},
+      hAddress = #{haddress,jdbcType=VARCHAR},
+      hCategory = #{hcategory,jdbcType=SMALLINT},
+      hStar = #{hstar,jdbcType=SMALLINT},
+      hBank = #{hbank,jdbcType=VARCHAR},
+      hAccount = #{haccount,jdbcType=VARCHAR},
+      hEntDesc = #{hentdesc,jdbcType=VARCHAR},
+      hEntPic1 = #{hentpic1,jdbcType=VARCHAR},
+      hEntPic2 = #{hentpic2,jdbcType=VARCHAR},
+      hEntPic3 = #{hentpic3,jdbcType=VARCHAR},
+      hEntPic4 = #{hentpic4,jdbcType=VARCHAR},
+      hEntPic5 = #{hentpic5,jdbcType=VARCHAR},
+      hMobileNum = #{hmobilenum,jdbcType=VARCHAR},
+      hOutTime = #{houttime,jdbcType=REAL},
+      hSecurityCode = #{hsecuritycode,jdbcType=VARCHAR},
+      hCardboredID = #{hcardboredid,jdbcType=VARCHAR},
+      hRegistTime = #{hregisttime,jdbcType=DATE},
+      hCountryArea = #{hcountryarea,jdbcType=VARCHAR}
+    where hUserID = #{huserid,jdbcType=INTEGER}
+  </update>
+
+
+ <!--华丽的********************上面是逆向工程 下面是自定义***************************************分割线-->
+
+
+  <resultMap id="loginResult" type="com.moyansz.scalescan.po.vo.LoginInfo">
+    <association property="holoenterprise" resultMap="BaseResultMap"/>
+
+    <association property="holosecretkeys" javaType="com.moyansz.scalescan.po.Holosecretkeys">
+      <id column="secretKey" property="secretkey" jdbcType="VARCHAR" />
+      <result column="category" property="category" jdbcType="INTEGER" />
+      <result column="fkUserId" property="fkuserid" jdbcType="INTEGER" />
+      <result column="maxusers" property="maxusers" jdbcType="INTEGER" />
+    </association>
+  </resultMap>
+  
+  <select id="login" parameterType="com.moyansz.scalescan.po.Holoenterprise" resultMap="loginResult">
+    SELECT enterprise.*,secretKey.`category` , secretKey.`secretKey` ,secretKey.`maxusers` 
+    FROM `holoSecretKeys` secretKey , `holoEnterprise` enterprise 
+    WHERE secretKey.`fkUserId` = enterprise.`hUserID`
+    AND enterprise.`hMobileNum` = #{hmobilenum,jdbcType=VARCHAR}
+    AND enterprise.`hUserPassword` = #{huserpassword,jdbcType=VARCHAR}
+    AND enterprise.`hCountryArea` = #{hcountryarea,jdbcType=VARCHAR}
+  </select>
+
+</mapper>
