@@ -1,0 +1,88 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="ScaleScanWeb:war exploded">
+    <output-path>$PROJECT_DIR$/ScaleScanWeb/target/com.magic.3d.app.web</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="ScaleScanWeb" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:4.2.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.2.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:4.2.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.2.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:4.2.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.2.6" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis-spring:1.2.2" />
+          <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.13" />
+          <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.13" />
+          <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.21" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.7.4" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.7.4" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.7.4" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.39" />
+          <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.1.3" />
+          <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpclient:4.5.3" />
+          <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpcore:4.4.6" />
+          <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.9" />
+          <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpclient-cache:4.5.3" />
+          <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpmime:4.5.3" />
+          <element id="library" level="project" name="Maven: org.hamcrest:hamcrest-core:1.1" />
+          <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpasyncclient:4.1" />
+          <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpcore-nio:4.4.1" />
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.4" />
+          <element id="library" level="project" name="Maven: com.alibaba.rocketmq:rocketmq-client:3.5.2" />
+          <element id="library" level="project" name="Maven: com.alibaba.rocketmq:rocketmq-common:3.5.2" />
+          <element id="library" level="project" name="Maven: com.alibaba.rocketmq:rocketmq-remoting:3.5.2" />
+          <element id="library" level="project" name="Maven: io.netty:netty-all:4.0.36.Final" />
+          <element id="library" level="project" name="Maven: com.alibaba.rocketmq:rocketmq-store:3.2.6" />
+          <element id="library" level="project" name="Maven: com.aliyun:aliyun-java-sdk-core:3.0.8" />
+          <element id="library" level="project" name="Maven: com.aliyun:aliyun-java-sdk-mts:2.1.7" />
+          <element id="library" level="project" name="Maven: com.aliyun.mns:aliyun-sdk-mns:1.1.8" />
+          <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.6.2" />
+          <element id="library" level="project" name="Maven: com.aliyun.openservices:ons-client:1.2.7.Final" />
+          <element id="library" level="project" name="Maven: org.quartz-scheduler:quartz:2.2.3" />
+          <element id="library" level="project" name="Maven: c3p0:c3p0:0.9.1.1" />
+          <element id="archive" name="com.moyansz.com.moyansz.scalescan.entity-0.0.1-SNAPSHOT.jar">
+            <element id="module-output" name="ScaleScanEntity" />
+          </element>
+          <element id="archive" name="com.moyansz.scalescan.service-0.0.1-SNAPSHOT.jar">
+            <element id="module-output" name="ScaleScanService" />
+          </element>
+          <element id="archive" name="com.moyansz.scalescan.dao-0.0.1-SNAPSHOT.jar">
+            <element id="module-output" name="ScaleScanDao" />
+          </element>
+          <element id="archive" name="com.moyansz.com.moyansz.scalescan.utils-0.0.1-SNAPSHOT.jar">
+            <element id="module-output" name="ScaleScanUtils" />
+          </element>
+          <element id="library" level="project" name="Maven: commons-beanutils:commons-beanutils:1.9.2" />
+          <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.1" />
+          <element id="library" level="project" name="Maven: commons-lang:commons-lang:2.6" />
+          <element id="library" level="project" name="Maven: javax.servlet:javax.servlet-api:3.0.1" />
+          <element id="library" level="project" name="Maven: dom4j:dom4j:1.6.1" />
+          <element id="library" level="project" name="Maven: xml-apis:xml-apis:1.0.b2" />
+          <element id="library" level="project" name="Maven: net.sf.json-lib:json-lib:jdk15:2.4" />
+          <element id="library" level="project" name="Maven: net.sf.ezmorph:ezmorph:1.0.6" />
+          <element id="library" level="project" name="Maven: log4j:log4j:1.2.9" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.6.6" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-log4j12:1.6.6" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:4.2.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-oxm:4.2.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:4.2.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:4.2.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.2.6.RELEASE" />
+          <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context-support:4.2.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-test:4.2.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-orm:4.2.6.RELEASE" />
+          <element id="library" level="project" name="Maven: redis.clients:jedis:2.8.1" />
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-pool2:2.4.2" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/ScaleScanWeb/target/com.magic.3d.app.web/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="ScaleScanWeb/web/Web" />
+    </root>
+  </artifact>
+</component>

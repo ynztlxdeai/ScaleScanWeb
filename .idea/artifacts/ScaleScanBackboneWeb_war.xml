@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ScaleScanBackboneWeb:war">
+    <output-path>$PROJECT_DIR$/ScaleScanBackboneWeb/target</output-path>
+    <root id="archive" name="com.moyansz.com.moyansz.scalescan.backbone.web-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="ScaleScanWeb:war" />
+    </root>
+  </artifact>
+</component>

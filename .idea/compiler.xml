@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <wildcardResourcePatterns>
+      <entry name="!?*.java" />
+      <entry name="!?*.form" />
+      <entry name="!?*.class" />
+      <entry name="!?*.groovy" />
+      <entry name="!?*.scala" />
+      <entry name="!?*.flex" />
+      <entry name="!?*.kt" />
+      <entry name="!?*.clj" />
+    </wildcardResourcePatterns>
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="com.moyansz.scalescan.backbone.web" />
+        <module name="com.moyansz.scalescan.dao" />
+        <module name="com.moyansz.scalescan.entity" />
+        <module name="com.moyansz.scalescan.service" />
+        <module name="com.moyansz.scalescan.utils" />
+        <module name="com.moyansz.scalescan.web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="com.moyansz.scalescan" target="1.8" />
+      <module name="com.moyansz.scalescan.backbone.web" target="1.8" />
+      <module name="com.moyansz.scalescan.dao" target="1.8" />
+      <module name="com.moyansz.scalescan.entity" target="1.8" />
+      <module name="com.moyansz.scalescan.service" target="1.8" />
+      <module name="com.moyansz.scalescan.utils" target="1.8" />
+      <module name="com.moyansz.scalescan.web" target="1.8" />
+      <module name="ScaleScan" target="1.8" />
+      <module name="ScaleScanBackboneWeb" target="1.8" />
+      <module name="ScaleScanDao" target="1.8" />
+      <module name="ScaleScanEntity" target="1.8" />
+      <module name="ScaleScanService" target="1.8" />
+      <module name="ScaleScanUtils" target="1.8" />
+      <module name="ScaleScanWeb" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ScaleScanWeb:war">
+    <output-path>$PROJECT_DIR$/ScaleScanWeb/target</output-path>
+    <root id="archive" name="com.magic.3d.app.web.war">
+      <element id="artifact" artifact-name="ScaleScanWeb:war exploded" />
+    </root>
+  </artifact>
+</component>

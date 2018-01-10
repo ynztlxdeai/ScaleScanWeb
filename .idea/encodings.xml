@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ScaleScanBackboneWeb" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ScaleScanDao" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ScaleScanEntity" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ScaleScanService" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ScaleScanUtils" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ScaleScanUtils/src/main/java/com/moyansz/file/ZipUtils.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ScaleScanWeb" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

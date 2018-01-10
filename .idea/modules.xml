@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://F:\IntelliJ_work\ScaleScanWeb\ScaleScan.iml" filepath="F:\IntelliJ_work\ScaleScanWeb\ScaleScan.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.moyansz.scalescan.iml" filepath="$PROJECT_DIR$/com.moyansz.scalescan.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ScaleScanBackboneWeb/com.moyansz.scalescan.backbone.web.iml" filepath="$PROJECT_DIR$/ScaleScanBackboneWeb/com.moyansz.scalescan.backbone.web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ScaleScanDao/com.moyansz.scalescan.dao.iml" filepath="$PROJECT_DIR$/ScaleScanDao/com.moyansz.scalescan.dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ScaleScanEntity/com.moyansz.scalescan.entity.iml" filepath="$PROJECT_DIR$/ScaleScanEntity/com.moyansz.scalescan.entity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ScaleScanService/com.moyansz.scalescan.service.iml" filepath="$PROJECT_DIR$/ScaleScanService/com.moyansz.scalescan.service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ScaleScanUtils/com.moyansz.scalescan.utils.iml" filepath="$PROJECT_DIR$/ScaleScanUtils/com.moyansz.scalescan.utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ScaleScanWeb/com.moyansz.scalescan.web.iml" filepath="$PROJECT_DIR$/ScaleScanWeb/com.moyansz.scalescan.web.iml" />
+    </modules>
+  </component>
+</project>
